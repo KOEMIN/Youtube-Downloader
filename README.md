@@ -99,5 +99,4 @@ pip install -r requirements.txt
 
 ```
 
-Selamat! Sekarang proyekmu punya dokumentasi yang jelas.
 ```
