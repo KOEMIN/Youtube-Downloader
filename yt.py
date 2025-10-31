@@ -7,20 +7,10 @@ def download_youtube_video(url):
     lalu menggabungkannya ke dalam satu file MP4.
     """
     ydl_opts = {
-        # 1. 'bestvideo+bestaudio/best':
-        #    - Mencari video kualitas terbaik DAN audio kualitas terbaik, lalu menggabungkannya.
-        #    - '/best' adalah fallback jika tidak ada stream terpisah.
         'format': 'bestvideo+bestaudio/best',
-        
-        # 2. 'outtmpl':
-        #    - Menentukan format nama file yang akan disimpan.
-        #    - Contoh: "Judul Video [1080p].mp4"
         'outtmpl': '%(title)s [%(resolution)s].%(ext)s',
         
-        # 3. 'postprocessors':
-        #    - Perintah yang dijalankan setelah download selesai.
-        #    - Di sini kita memberitahu yt-dlp untuk menggabungkan video dan audio ke format mp4.
-        #    - Membutuhkan ffmpeg untuk bekerja.
+
         'postprocessors': [{
             'key': 'FFmpegVideoConvertor',
             'preferedformat': 'mp4',
@@ -37,7 +27,7 @@ def download_youtube_video(url):
             
     except Exception as e:
         print("\n❌ Terjadi kesalahan:")
-        # Mencetak detail error untuk debugging
+
         print(traceback.format_exc())
 
 if __name__ == "__main__":
